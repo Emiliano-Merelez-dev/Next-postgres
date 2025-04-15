@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { CiLogout } from "react-icons/ci"
 import { SidebarItem } from "./SidebarItem"
-import { IoBasketOutline, IoCalendarOutline, IoCheckboxOutline, IoCodeWorking, IoListOutline, IoPersonOutline } from "react-icons/io5"
+import { IoBasketOutline, IoCalendarOutline, IoCheckboxOutline, IoCodeWorking, IoHomeOutline, IoListOutline, IoPersonOutline } from "react-icons/io5"
 import { auth } from "@/auth/auth"
 import { LogoutButton } from "./LogoutButton"
 
@@ -52,19 +52,17 @@ export const Sidebar = async() => {
   const userRoles = sesion?.user?.roles ?? ['client'];
 
   return (
-    <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+    <aside className="fixed z-10 top-0 left-0 h-screen w-[250px] min-w-[250px] overflow-y-auto bg-white border-r px-6 pb-3 flex flex-col justify-between">
+
         <div>
           <div className="-mx-6 px-6 py-4">
            
-            <Link href="/dashboard" title="home">
-              <Image 
-              src="https://tailus.io/sources/blocks/stats-cards/preview/images/logo.svg" 
-              className="w-32" 
-              alt="tailus logo"
-              width={100}
-              height={100}
-              />
-            </Link>
+          <Link href="/dashboard" title="home">
+            <div className="text-4xl text-blue-600">
+              <IoHomeOutline />
+            </div>
+          </Link>
+
           </div>
 
           <div className="mt-8 text-center">
