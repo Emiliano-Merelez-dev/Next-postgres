@@ -43,7 +43,7 @@ export async function POST(request: Request) {
    try {
       const {complete, description } = await postSchema.validate( await request.json() );
 
-      const todo = await prisma.todo.create({ data: {complete, description, userId: user.id } });
+      const todo = await prisma.todo.create({ data: {complete, description, userId: user.id! } });
    
       return NextResponse.json(todo);
       

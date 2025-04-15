@@ -22,16 +22,16 @@ export const { signIn, signOut, auth, handlers } = NextAuth({
         password: {},
       },
       authorize: async (credentials) => {
-        const user = await signInEmailPassword( credentials!.email, credentials!.password );
- 
-
+        const { email, password } = credentials as { email: string; password: string };
+        const user = await signInEmailPassword(email, password);
+      
         if (user) {
-          return user
-        } 
-
+          return user;
+        }
+      
         return null;
-        
-      },
+      }
+      
     }),
 
 
